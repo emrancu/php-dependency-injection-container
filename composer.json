@@ -17,7 +17,7 @@
     "A dependency injection container for php",
     "PHP Dependency Injection",
     "Laravel Dependency Injection Understanding",
-    "Initiate Class and method with dependency parameters/injection"
+    "Initiate Class and method with dependency "
   ],
   "autoload": {
     "classmap": [],
