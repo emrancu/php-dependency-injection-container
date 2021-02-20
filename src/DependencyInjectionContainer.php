@@ -141,7 +141,6 @@ class DependencyInjectionContainer implements Container
 
         }
 
-
         if (is_array($callable)) {
 
             if (is_object($callable[0])) {
