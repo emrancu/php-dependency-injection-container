@@ -1,4 +1,4 @@
-# Lets Create PHP Dependency Injection Container and Try to Learn How Laravel Initiate Controller and Method with Dependancy and Parameters
+# Lets Create PHP Dependency Injection Container and Try to Learn How Laravel Initiate Controller and Method with Dependency and Parameters
 
  
 We are building application with [Laravel](https://laravel.com/) but many of us do not know how [Laravel](https://laravel.com/) Initiate Controller and Method with Dependency and Parameters.
