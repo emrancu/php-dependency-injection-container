@@ -29,6 +29,13 @@ class DependencyInjectionContainer implements Container
     protected $callbackClass;
 
     /**
+     * the provided class already instanciated or not
+     *
+     * @var boolean
+     */
+    protected $is_classInstanciated;
+
+    /**
      * the method name of provided class
      *
      * @var string
@@ -45,7 +52,7 @@ class DependencyInjectionContainer implements Container
      *
      * @var string
      */
-    protected $namespace = "App\\controller\\";
+    public $namespace = "App\\controller\\";
 
 
     /**
@@ -108,22 +115,46 @@ class DependencyInjectionContainer implements Container
 
         }
 
-        $initClass = $this->make($this->callbackClass, $parameters);
+        if (!is_object($this->callbackClass)) {
+            $initClass = $this->make($this->callbackClass, $parameters);
+        } else {
+            $initClass = $this->callbackClass;
+        }
 
-       return $methodReflection->invoke($initClass, ...$dependencies);
+
+        return $methodReflection->invoke($initClass, ...$dependencies);
     }
 
 
     /**
      * @param $callable
-     */
+     *
     private function resolveCallback($callable)
     {
 
-        $segments = explode($this->methodSeparator, $callable);
+        if (is_string($callable)) {
 
-        $this->callbackClass = $this->namespace.$segments[0];
-        $this->callbackMethod = isset($segments[1]) ? $segments[1] : '__invoke';
+            $segments = explode($this->methodSeparator, $callable);
+
+            $this->callbackClass = $this->namespace.$segments[0];
+            $this->callbackMethod = isset($segments[1]) ? $segments[1] : '__invoke';
+
+        }
+
+
+        if (is_array($callable)) {
+
+            if (is_object($callable[0])) {
+                $this->callbackClass = $callable[0];
+            }
+
+            if (is_string($callable[0])) {
+                $this->callbackClass = $this->namespace.$callable[0];
+            }
+
+            $this->callbackMethod = isset($callable[1]) ? $callable[1] : '__invoke';
+
+        }
 
     }
 
@@ -139,7 +170,7 @@ class DependencyInjectionContainer implements Container
     {
 
         $classReflection = new ReflectionClass($class);
-        $constructorParams = $classReflection->getConstructor()->getParameters();
+        $constructorParams = $classReflection->getConstructor() ? $classReflection->getConstructor()->getParameters() : [];
         $dependencies = [];
 
         /*
@@ -156,7 +187,8 @@ class DependencyInjectionContainer implements Container
             } else {
 
                 $name = $constructorParam->getName();
-                if (array_key_exists($name, $parameters)) {
+
+                if (!empty($parameters) && array_key_exists($name, $parameters)) {
 
                     array_push($dependencies, $parameters[$name]);
 
