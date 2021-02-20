@@ -527,6 +527,13 @@ We can use :
 
    $instance->call([$class, 'index']); // or--call method
 ```
+
+
+#install package
+```php
+composer require emrancu/dependency-injection-container
+```
+
 ## Declaimer 
  I am not an expert in PHP, try to learn. 
  
