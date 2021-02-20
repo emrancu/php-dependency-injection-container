@@ -22,7 +22,7 @@
   "autoload": {
     "classmap": [],
     "psr-4": {
-      "AlEmran\\PHPDependencyInjection": "src/"
+      "AlEmran\\PHPDependencyInjection\\": "src/"
     }
   },
   "require": {
