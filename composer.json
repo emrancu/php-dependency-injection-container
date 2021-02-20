@@ -16,8 +16,8 @@
   "keywords": [
     "A dependency injection container for php",
     "PHP Dependency Injection",
-    "How Laravel Dependency Injection work",
-    "How Laravel initiate controller and method with dependency injection & parameters"
+    "Laravel Dependency Injection Understanding",
+    "Initiate Class and method with dependency injection & parameters"
   ],
   "autoload": {
     "classmap": [],
