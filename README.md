@@ -488,6 +488,45 @@ $container->call('TestController', ['id' => 4]);
 
 ```
 
+OR
+
+**example**
+
+```php
+
+class TestController 
+{
+     protected $company;
+     public function __construct(Company $company)
+        {
+            $this->company =  $company ;
+        }
+
+    /**
+     * @param  Request  $request 
+     */
+    public function index(Request $request){
+
+    $company =  $company->get();
+
+     return view('admin.company', compact('company'));        
+
+    }
+
+}
+ 
+```
+We can use :
+```php
+   $instance = DependencyInjectionContainer::instance();
+   $instance->namespace = "App\\Http\Controllers\\Admin\\"; // change namespace
+
+   $class = $instance->make(CompanyController::class); // make class instance
+
+   $instance->call(["CompanyController", 'index']); // call method
+
+   $instance->call([$class, 'index']); // or--call method
+```
 ## Declaimer 
  I am not an expert in PHP, try to learn. 
  
