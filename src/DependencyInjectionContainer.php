@@ -128,7 +128,7 @@ class DependencyInjectionContainer implements Container
 
     /**
      * @param $callable
-     *
+     */
     private function resolveCallback($callable)
     {
 
