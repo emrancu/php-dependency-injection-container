@@ -1,0 +1,35 @@
+{
+  "name": "emrancu/dependency-injection-container",
+  "description": "A dependency injection container for php",
+  "license": "MIT",
+  "homepage": "https://github.com/emrancu/php-dependency-injection-container",
+  "support": {
+    "issues": "https://github.com/emrancu/php-dependency-injection-container/issues",
+    "source": "https://github.com/emrancu/php-dependency-injection-container"
+  },
+  "authors": [
+    {
+      "name": "AL EMRAN",
+      "email": "emrancu1@gmail.com"
+    }
+  ],
+  "keywords": [
+    "A dependency injection container for php",
+    "PHP Dependency Injection",
+    "How Laravel Dependency Injection work",
+    "How Laravel initiate controller and method with dependency injection & parameters"
+  ],
+  "autoload": {
+    "classmap": [],
+    "psr-4": {
+      "AlEmran\\PHPDependencyInjection": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+
+  }
+
