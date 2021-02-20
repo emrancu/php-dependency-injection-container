@@ -1,5 +1,5 @@
 {
-  "name": "php-dependency-injection-container",
+  "name": "emrancu/php-dependency-injection-container",
   "description": "A dependency injection container for php",
   "license": "MIT",
   "homepage": "https://github.com/emrancu/php-dependency-injection-container",
