@@ -474,7 +474,7 @@ Laravel Routing system collect all parameter and pass to call function.
 
 ```php
 $parameters = ["name" => "AL EMRAN" ];
-$container->cal("TestController@index", $parameters)
+$container->call("TestController@index", $parameters)
 
 ```
 
